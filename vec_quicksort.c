@@ -52,7 +52,7 @@ static void	vec_quicksort(t_vec *src, size_t low,
 {
 	size_t	p;
 
-	if (low >= high || low < 0)
+	if (low >= high || low == 0)
 		return ;
 	p = vec_partition(src, low, high, f);
 	vec_quicksort(src, low, p - 1, f);
