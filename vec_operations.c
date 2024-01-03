@@ -56,7 +56,7 @@ int	vec_append(t_vec *dst, t_vec *src)
 {
 	if (!src || !dst || !src->memory)
 		return (-1);
-	if (dst->alloc_size < (dst->len + src->len) * dst->elem_size)
+	if (dst->alloc_size <= (dst->len + src->len) * dst->elem_size)
 	{
 		if (vec_resize(dst, dst->alloc_size + src->alloc_size) <= 0)
 			return (-1);
@@ -72,7 +72,7 @@ int	vec_prepend(t_vec *dst, t_vec *src)
 {
 	if (!src || !dst || !src->memory)
 		return (-1);
-	if (dst->alloc_size < (dst->len + src->len) * dst->elem_size)
+	if (dst->alloc_size <= (dst->len + src->len) * dst->elem_size)
 	{
 		if (vec_resize(dst, dst->alloc_size + src->alloc_size) <= 0)
 			return (-1);
