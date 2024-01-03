@@ -22,6 +22,8 @@ void	vec_free(t_vec *src)
 
 int	vec_from(t_vec *dst, void *src, size_t len, size_t elem_size)
 {
+	if (dst->memory)
+		vec_free(dst);
 	if (!dst || !src || elem_size == 0)
 		return (-1);
 	else if (vec_new(dst, len, elem_size) <= 0)
